@@ -1,0 +1,39 @@
+<form #myForm="ngForm" (ngSubmit)="submitForm(myForm)">
+    <mat-form-field>
+      <input matInput placeholder="Name" name="name" ngModel [(ngModel)]="user.name" required>
+    </mat-form-field>
+  
+    <mat-form-field>
+      <input matInput type="email" placeholder="Email" name="email" ngModel [(ngModel)]="user.email" required>
+    </mat-form-field>
+  
+    <div>
+      <span>Gender:</span>
+      <mat-radio-group name="gender" [(ngModel)]="user.gender">
+        <mat-radio-button value="male">Male</mat-radio-button>
+        <mat-radio-button value="female">Female</mat-radio-button>
+        <mat-radio-button value="others">Others</mat-radio-button>
+      </mat-radio-group>
+    </div>
+  
+    <div>
+      <span>Languages:</span>
+      <mat-checkbox-group name="languages" [(ngModel)]="user.languages">
+        <mat-checkbox value="tamil" (change)="onLanguageChange($event,'tamil')">Tamil</mat-checkbox>
+        <mat-checkbox value="english" (change)="onLanguageChange($event,'english')" >English</mat-checkbox>
+        <mat-checkbox value="hindi" (change)="onLanguageChange($event,'hindi')">Hindi</mat-checkbox>
+      </mat-checkbox-group>
+    </div>
+  
+    <mat-form-field>
+      <mat-label>Country</mat-label>
+      <mat-select name="country" [(ngModel)]="user.country">
+        <mat-option value="India" >India</mat-option>
+        <mat-option value="China">China</mat-option>
+        <mat-option value="Australia">Australia</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-raised-button type="submit">Submit</button>
+  </form>
+  
+  <button routerLink="/getuser">goToGetuser</button>
